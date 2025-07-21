@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tienda de Tecnología</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Usamos sweetalert en lugar de sweetalert2 -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js "></script>
+</head>
+<body>
+  <header>
+    <h1>🛍️ Tienda de Tecnología</h1>
+    <p>Elige tus productos y realiza tu compra online</p>
+  </header>
+
+  <main>
+    <section id="productos" class="productos"></section>
+
+    <section class="formulario">
+      <h2>🛒 Carrito de Compra</h2>
+      <div id="carrito" class="carrito-lista">
+        <p>Selecciona productos del catálogo</p>
+      </div>
+
+      <div class="total">
+        <strong>Total a pagar:</strong> <span id="total">0 $ARS</span>
+      </div>
+
+      <form id="form-compra">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" placeholder="tu@email.com" required />
+
+        <label for="direccion">Dirección de envío:</label>
+        <input type="text" id="direccion" name="direccion" placeholder="Calle, ciudad, país" required />
+
+        <button type="submit" class="btn-confirmar">✅ Realizar Compra</button>
+      </form>
+    </section>
+  </main>
+<footer class="footer">
+  © 2025 Tienda de Tecnología | Proyecto Final - Curso de JavaScript
+</footer>
+  <script src="script.js"></script>
+</body>
+</html>
