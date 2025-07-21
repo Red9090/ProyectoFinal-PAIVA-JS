@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let productos = [];
   let carrito = [];
 
-  // Cargar productos desde JSON
+  // Cargar productos JSON
   fetch("data/productos.json")
     .then((res) => res.json())
     .then((data) => {
@@ -80,15 +80,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Confirmar compra
   form.addEventListener("submit", (e) => {
-    e.preventDefault(); // ✅ Evita recargar la página
+    e.preventDefault(); // Evita recargar la página
 
-    // ✅ Validar carrito vacío
+    // Validar carrito vacío
     if (carrito.length === 0) {
       swal("Error", "Por favor, agrega productos antes de finalizar la compra.", "error");
       return;
     }
 
-    // ✅ Validar formulario
+    // Validar formulario
     const nombre = document.getElementById("nombre").value.trim();
     const email = document.getElementById("email").value.trim();
     const direccion = document.getElementById("direccion").value.trim();
@@ -98,13 +98,13 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // ✅ Calcular total y mostrar mensaje
+    // Calcular total y mostrar mensaje
     const total = carrito.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
     const detalle = carrito
       .map((item) => `${item.nombre} x${item.cantidad} - $${item.precio * item.cantidad} ARS`)
       .join("\n");
 
-    // ✅ Usamos sweetalert clásico
+    //sweetalert clásico
     swal({
       title: "Compra realizada",
       text: `¡Gracias por tu compra, ${nombre}!\n\nDetalles:\n${detalle}\n\nTotal: $${total} ARS\n\nPronto recibirás un correo a ${email}`,
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
       button: "Aceptar",
     });
 
-    // ✅ Limpiar formulario y carrito
+    //Limpia formulario y carrito
     form.reset();
     carrito = [];
     actualizarCarrito();
